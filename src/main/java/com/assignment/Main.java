@@ -122,8 +122,8 @@ public class Main {
         float y = 2.44f;
         String str = "David is a good boy";
 
-        System.out.printf("%07.1f \n", y);
-        System.out.printf("%20s", str);
+//        System.out.printf("%07.1f \n", y);
+//        System.out.printf("%20s", str);
 
 //        Strings
         String str1 = "Java Program";
@@ -136,17 +136,36 @@ public class Main {
         byte b[]  = {65, 66, 67, 68};
         String str4 = new String(b, 1, 3);
 
-        System.out.println(str4);
+//        System.out.println(str4);
 
         String str5 = "Java";
         String str6 = "Java";
 
         str5 = "jaca";
 
-        System.out.println(str6);
+//        System.out.println(str6);
 
-        checkIfGmailAndSeparateNameAndDomain("david@gmail.com");
-        isBinary(10011100);
+//        checkIfGmailAndSeparateNameAndDomain("david@gmail.com");
+//        isBinary(10011100);
+//        isCorrectFormat("21/12/2120");
+        String s = "a!B@c#1$2%3D";
+        String s1 = "   abc    def    ehi   jkl   ";
+
+//        System.out.println(s1.replaceAll("\\s+", " ").trim());
+
+//        findRadixOf("10011101");
+//        findRadixOf("112332999");
+//        findRadixOf("11234567");
+//        findRadixOf("1AD3229");
+//
+//        printProtocol("http://www.google.com");
+//        printProtocol("ftp://www.google.org");
+//        printProtocol("fttp://www.google.orw");
+
+        for (int i = 0, j = 2; i < 10; i++, j = j*2) {
+            System.out.println(i + " " + j);
+        }
+
     }
 
 //    Area of a Shape(✔)
@@ -183,9 +202,37 @@ public class Main {
 
     static void isBinary(int b) {
         String strOfB = b + "";
-        boolean isBinary = strOfB.matches("[01]{8}");
+        boolean isBinary = strOfB.matches("[01]+");
 
         System.out.println(isBinary);
+    }
+
+    static void isCorrectFormat(String str) {
+        System.out.println(str.matches("[0-3][0-9]/[01][0-9]/\\d*"));
+    }
+
+    static void findRadixOf(String str) {
+        if (str.matches("[01]+")) System.out.println("Binary Radix=2");
+        else if (str.matches("[0-7]+")) System.out.println("Octal Radix=8");
+        else if (str.matches("[0-9]+")) System.out.println("Decimal Radix=10");
+        else if (str.matches("[0-9A-F]+")) System.out.println("Hexadecimal Radix=16");
+    }
+
+    static void printProtocol(String url) {
+        int indexOfDot = url.lastIndexOf(".");
+        String domain = url.substring(indexOfDot + 1);
+
+        if(url.startsWith("http")) System.out.println("http - Hypertext Transfer Protocol");
+        else if(url.startsWith("ftp")) System.out.println("ftp - File Transfer Protocol");
+        else System.out.println("Invalid Protocol");
+
+        if(domain.equals("com")) System.out.println("com - Commercial");
+        else if(domain.equals("org")) System.out.println("org - Organisation");
+        else System.out.println("🥹");
+    }
+
+    static void displayDigit() {
+
     }
 
 }
