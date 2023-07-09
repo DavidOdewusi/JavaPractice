@@ -162,9 +162,11 @@ public class Main {
 //        printProtocol("ftp://www.google.org");
 //        printProtocol("fttp://www.google.orw");
 
-        for (int i = 0, j = 2; i < 10; i++, j = j*2) {
-            System.out.println(i + " " + j);
-        }
+//        for (int i = 0, j = 2; i < 10; i++, j = j*2) {
+//            System.out.println(i + " " + j);
+//        }
+
+        displayDigit(12521);
 
     }
 
@@ -231,7 +233,58 @@ public class Main {
         else System.out.println("🥹");
     }
 
-    static void displayDigit() {
+    static void displayDigit(int num) {
+//        for(int quotient = num/10;quotient != 0; quotient = quotient/10) {
+//            System.out.println(remainder);
+//            remainder = quotient % 10;
+//        }
+//        System.out.println(remainder);
+//        do{
+
+//        }while (quotient != 0);
+        int originalNum = num;
+        int remainder;
+//        int count = 0;
+//        int armstrong = 0;
+        int reversedNum = 0;
+
+        while (num != 0) {
+            remainder = num % 10;
+            num = num/10;
+//            armstrong += Math.pow(remainder, 3);
+            System.out.println(remainder);
+            reversedNum = reversedNum * 10 + remainder;
+//            count++;
+        }
+
+        int r;
+
+        while (reversedNum != 0) {
+            r = reversedNum % 10;
+            reversedNum = reversedNum/10;
+
+            if (r == 0) System.out.println("Zero");
+            else if (r == 1) System.out.println("One");
+            else if (r == 2) System.out.println("Two");
+            else if (r == 3) System.out.println("Three");
+            else if (r == 4) System.out.println("Four");
+            else if (r == 5) System.out.println("Five");
+            else if (r == 6) System.out.println("Six");
+            else if (r == 7) System.out.println("Seven");
+            else if (r == 8) System.out.println("Eight");
+            else if (r == 9) System.out.println("Nine");
+//            reversedNum = reversedNum * 10 + remainder;
+
+        }
+//        System.out.println("Count = " + count);
+//        System.out.println("Reversed Number = " + reversedNum);
+//
+//        if (armstrong == originalNum) System.out.println("Number is Armstrong");
+//        else System.out.println("Number is not Armstrong");
+//
+//        if (reversedNum == originalNum) System.out.println("Number is Palindrome");
+//        else System.out.println("Number is not Palindrome");
+
 
     }
 
