@@ -166,8 +166,9 @@ public class Main {
 //            System.out.println(i + " " + j);
 //        }
 
-        displayDigit(12521);
-
+//        displayDigit(12521);
+//        printNumInWord(1700);
+          arithmeticProgression(7, 2, 5);
     }
 
 //    Area of a Shape(✔)
@@ -244,48 +245,73 @@ public class Main {
 //        }while (quotient != 0);
         int originalNum = num;
         int remainder;
-//        int count = 0;
-//        int armstrong = 0;
+        int count = 0;
+        int armstrong = 0;
         int reversedNum = 0;
 
         while (num != 0) {
             remainder = num % 10;
             num = num/10;
-//            armstrong += Math.pow(remainder, 3);
+            armstrong += Math.pow(remainder, 3);
             System.out.println(remainder);
             reversedNum = reversedNum * 10 + remainder;
-//            count++;
+            count++;
         }
+        System.out.println("Count = " + count);
+        System.out.println("Reversed Number = " + reversedNum);
 
-        int r;
+        if (armstrong == originalNum) System.out.println("Number is Armstrong");
+        else System.out.println("Number is not Armstrong");
 
-        while (reversedNum != 0) {
-            r = reversedNum % 10;
-            reversedNum = reversedNum/10;
+        if (reversedNum == originalNum) System.out.println("Number is Palindrome");
+        else System.out.println("Number is not Palindrome");
+    }
 
-            if (r == 0) System.out.println("Zero");
-            else if (r == 1) System.out.println("One");
-            else if (r == 2) System.out.println("Two");
-            else if (r == 3) System.out.println("Three");
-            else if (r == 4) System.out.println("Four");
-            else if (r == 5) System.out.println("Five");
-            else if (r == 6) System.out.println("Six");
-            else if (r == 7) System.out.println("Seven");
-            else if (r == 8) System.out.println("Eight");
-            else if (r == 9) System.out.println("Nine");
-//            reversedNum = reversedNum * 10 + remainder;
-
+    static void printNumInWord(int num) {
+        String strNum[] = String.valueOf(num).split("");
+        for(String c : strNum) {
+            switch (c) {
+                case "0":
+                    System.out.println("Zero");
+                    break;
+                case "1":
+                    System.out.println("One");
+                    break;
+                case "2":
+                    System.out.println("Two");
+                    break;
+                case "3":
+                    System.out.println("Three");
+                    break;
+                case "4":
+                    System.out.println("Four");
+                    break;
+                case "5":
+                    System.out.println("Five");
+                    break;
+                case "6":
+                    System.out.println("Six");
+                    break;
+                case "7":
+                    System.out.println("Seven");
+                    break;
+                case "8":
+                    System.out.println("Eight");
+                    break;
+                case "9":
+                    System.out.println("Nine");
+                    break;
+            }
         }
-//        System.out.println("Count = " + count);
-//        System.out.println("Reversed Number = " + reversedNum);
-//
-//        if (armstrong == originalNum) System.out.println("Number is Armstrong");
-//        else System.out.println("Number is not Armstrong");
-//
-//        if (reversedNum == originalNum) System.out.println("Number is Palindrome");
-//        else System.out.println("Number is not Palindrome");
+    }
 
-
+    static void arithmeticProgression(int start, int diff, int numOfTime) {
+        int newStart = start;
+        for (int i = 0; i < numOfTime; i++) {
+            System.out.print(newStart + ",");
+            if (i == numOfTime-1) System.out.print(newStart+diff);
+            newStart += diff;
+        }
     }
 
 }
