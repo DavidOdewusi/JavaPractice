@@ -168,7 +168,15 @@ public class Main {
 
 //        displayDigit(12521);
 //        printNumInWord(1700);
-          arithmeticProgression(7, 2, 5);
+//          arithmeticProgression(7, 2, 5);
+
+//        How to instantiate an abstract class
+          Account d = new Account() {
+              @Override
+              public void dispenseMoney(String amount) {
+
+              }
+          };
     }
 
 //    Area of a Shape(✔)
