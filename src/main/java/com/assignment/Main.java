@@ -2,6 +2,7 @@ package com.assignment;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Predicate;
@@ -171,12 +172,18 @@ public class Main {
 //          arithmeticProgression(7, 2, 5);
 
 //        How to instantiate an abstract class
-          Account d = new Account() {
-              @Override
-              public void dispenseMoney(String amount) {
-
-              }
-          };
+//          Account d = new Account() {
+//              @Override
+//              public void dispenseMoney(String amount) {
+//
+//              }
+//          };
+        List<Integer> coins = Arrays.asList(5,2,3);//Correct
+        List<Integer> coins1 = Arrays.asList(1,2);//Correct
+        List<Integer> coins2 = Arrays.asList(5,2,3,6,4,5,1,2,4,7);//Wrong
+        System.out.println(todaysAlgo(10, coins));
+        System.out.println(todaysAlgo(4, coins1));
+        System.out.println(todaysAlgo(20, coins2));
     }
 
 //    Area of a Shape(✔)
@@ -320,6 +327,23 @@ public class Main {
             if (i == numOfTime-1) System.out.print(newStart+diff);
             newStart += diff;
         }
+    }
+
+    static int todaysAlgo(int money, List<Integer> coins) {
+
+        int count = 0;
+        int sum = 0;
+
+        for (Integer coin : coins) {
+            if (money % coin == 0) count++;
+            sum += coin;
+            for (Integer integer : coins) {
+                if (coin + integer == money) count++;
+            }
+        }
+        if(sum == money) count++;
+
+        return count;
     }
 
 }

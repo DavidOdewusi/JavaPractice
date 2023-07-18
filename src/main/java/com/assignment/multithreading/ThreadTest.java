@@ -58,13 +58,26 @@ class MyThread2 extends Thread{
 
 class MyData {
     int value = 0;
+    boolean flag = true;
 
-    synchronized void set(int v){
+    synchronized void set(int v) {
+        while (!flag) {
+            try {wait();} catch (InterruptedException e){System.out.println(e);}
+        }
         value = v;
+        flag = false;
+        notify();
     }
 
     synchronized int get() {
-        return value;
+        int x = 0;
+        while (flag){
+            try {wait();} catch (InterruptedException e){System.out.println(e);}
+        }
+        x = value;
+        flag = true;
+        notify();
+        return x;
     }
 }
 
@@ -132,11 +145,17 @@ public class ThreadTest {
 //        System.out.println("Thread Group " + g.getThreadGroup());
 //        System.out.println("Alive " + g.isAlive());
 
-        Data d = new Data();
-        MyThread1 thread1 = new MyThread1(d);
-        MyThread2 thread2 = new MyThread2(d);
-        thread1.start();
-        thread2.start();
+//        Data d = new Data();
+//        MyThread1 thread1 = new MyThread1(d);
+//        MyThread2 thread2 = new MyThread2(d);
+//        thread1.start();
+//        thread2.start();
+
+        MyData d = new MyData();
+        Producer p = new Producer(d);
+        Consumer c = new Consumer(d);
+        p.start();
+        c.start();
 
     }
 }
